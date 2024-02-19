@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Page</title>
+    <style>
+        :root {
+            --primary-100: #6c35de;
+            --primary-200: #a364ff;
+            --primary-300: #ffc7ff;
+            --accent-100: #cb80ff;
+            --accent-200: #373737;
+            --text-100: #ffffff;
+            --text-200: #e0e0e0;
+            --bg-100: #241b35;
+            --bg-200: #342a45;
+            --bg-300: #4d425f;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--bg-100);
+            color: var(--text-200);
+            margin: 0;
+            padding: 0;
+            transition: all 0.5s ease;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--primary-100);
+            color: var(--text-100);
+        }
+
+        #chat-messages {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: var(--bg-200);
+            box-shadow: 0 0 10px var(--accent-200);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .message {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: var(--bg-300);
+            border-radius: 5px;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .message img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+
+        .message p {
+            margin: 0;
+            padding: 0;
+            color: var(--text-100);
+        }
+
+        #chat-form {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: var(--bg-200);
+            box-shadow: 0 0 10px var(--accent-200);
+            border-radius: 5px;
+            display: flex;
+            flex-wrap: wrap;
+            animation: slideUp 0.5s ease-out;
+        }
+
+        #chat-form > * {
+            margin: 5px;
+        }
+
+        input, textarea, button[type="submit"] {
+            border: 1px solid var(--primary-300);
+            border-radius: 3px;
+            padding: 5px;
+            background-color: var(--bg-300);
+            color: var(--text-100);
+        }
+
+        button[type="submit"] {
+            background-color: var(--primary-200);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover {
+            background-color: var(--accent-100);
+        }
+
+        #image-preview {
+            margin-bottom: 10px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Chat with MedGPT Bot</h1>
+
+    <div id="chat-messages">
+        <!-- Dynamically insert chat messages here -->
+    </div>
+
+    <form id="chat-form" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="text" name="message" placeholder="Type your message" autofocus>
+        <input type="file" id="image-input" name="image" onchange="previewImage()">
+        <div id="image-preview"></div>
+        <textarea name="comment" placeholder="Add a comment..." rows="2"></textarea>
+        <button type="submit">Send</button>
+    </form>
+
+    <script>
+        function previewImage() {
+            const input = document.getElementById('image-input');
+            const previewContainer = document.getElementById('image-preview');
+            previewContainer.innerHTML = ''; // Clear any existing content
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.style.maxWidth = '100%';
+                    img.style.borderRadius = '5px';
+                    previewContainer.appendChild(img);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+</body>
+</html>
