@@ -3,7 +3,7 @@ import openai
 
 
 def get_api_key():
-    with open("J:\\Xite development\\MedGPT\\medgpt\\core\\ai\\Data\\api.txt", "r") as fileopen:
+    with open("C:\\Users\\ASUS\\OneDrive\\Desktop\\New folder (5)\\MedGPT\\medgpt\\core\\ai\\Data\\api.txt", "r") as fileopen:
         api_key = fileopen.read().strip()
     return api_key
 
@@ -13,8 +13,8 @@ completion = openai.Completion()
 
 
 def ReplyBrain(user_name, question, chat_log=None):
-    chat_log_path = f"J:\\Xite development\\MedGPT\\medgpt\\media\\chat\\histroy\\{user_name}.txt"
-    chat_log_template_path = "J:\\Xite development\\MedGPT\\medgpt\\core\\ai\\Database\\template.txt"
+    chat_log_path = f"C:\\Users\\ASUS\\OneDrive\\Desktop\\New folder (5)\MedGPT\\medgpt\media\\chat\histroy\\{user_name}.txt"
+    chat_log_template_path = "C:\\Users\\ASUS\\OneDrive\\Desktop\\New folder (5)\\MedGPT\\medgpt\\core\\ai\\Database\\template.txt"
 
     # Check if the file exists, and if not, create it
     if not os.path.exists(chat_log_path):

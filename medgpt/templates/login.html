@@ -1,4 +1,652 @@
 <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome back login now</title>
+
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+        @import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+        :root {
+        --primary-100: #ee1d52;
+        --primary-200: #ff607e;
+        --primary-300: #ffcddf;
+        --accent-100: #ffc107;
+        --accent-200: #916400;
+        --text-100: #333333;
+        --text-200: #5c5c5c;
+        --bg-100: #f7f7f7;
+        --bg-200: #ededed;
+        --bg-300: #c4c4c4;
+        --texture-bg: repeating-linear-gradient(
+            45deg,
+            var(--bg-100) 0px,
+            var(--bg-200) 10px,
+            transparent 10px,
+            transparent 11px
+            ),
+            repeating-linear-gradient(
+            135deg,
+            var(--bg-100) 0px,
+            var(--bg-200) 10px,
+            transparent 10px,
+            transparent 11px
+            ),
+            linear-gradient(90deg, var(--bg-100), var(--bg-100));
+        --primary-gradient: radial-gradient(var(--primary-200), var(--primary-300));
+        --box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        --container-background: rgba(255, 255, 255, 0.05);
+        --container-border: 1px solid rgba(255, 255, 255, 0.18);
+        --input-border: 1px solid var(--bg-300);
+        --blur-bg: blur(10px);
+        --hover-transition: 350ms;
+        }
+
+        body {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        box-sizing: border-box;
+        text-transform: none;
+        text-decoration: none;
+        background-image: var(--texture-bg);
+        font-family: "Open Sans", sans-serif;
+        }
+
+        section {
+        min-height: 100vh;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+        color: var(--text-300);
+        font-family: "Open Sans", sans-serif;
+        }
+
+        p {
+        color: var(--text-100);
+        font-family: "Open Sans", sans-serif;
+        }
+
+        span {
+        color: var(--text-100);
+        font-family: "Open Sans", sans-serif;
+        }
+
+        input {
+        outline: none;
+        border: 1px solid var(--text-300);
+        }
+
+        .kaushan-font {
+        font-family: "Kaushan Script", cursive;
+        color: var(--primary-200);
+        }
+
+        /*--------------------- Home page {Landing page} ---------------------*/
+        .main-landing-page-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+        .main-landing-page-section .main-landing-page-container {
+        width: 600px;
+        height: 350px;
+        transition: all 0.2s;
+        position: relative;
+        cursor: pointer;
+        }
+        .main-landing-page-section .main-landing-page-container .card-inner {
+        padding: 0 1rem;
+        width: inherit;
+        height: inherit;
+        text-align: center;
+        background: var(--container-background);
+        box-shadow: var(--box-shadow);
+        backdrop-filter: var(--blur-bg);
+        -webkit-backdrop-filter: var(--blur-bg);
+        border-radius: 1.5rem;
+        border: var(--container-border);
+        }
+        .main-landing-page-section
+        .main-landing-page-container
+        .card-inner
+        .card-inner-details
+        h1 {
+        font-family: "Kaushan Script", cursive;
+        font-weight: 100;
+        color: var(--primary-200);
+        }
+        .main-landing-page-section
+        .main-landing-page-container
+        .card-inner
+        .card-inner-details
+        h1
+        span {
+        font-family: "Kaushan Script", cursive;
+        font-size: 3.5rem;
+        font-weight: 900 !important;
+        color: #ee1d52;
+        }
+        .main-landing-page-section
+        .main-landing-page-container
+        .card-inner
+        .card-inner-details
+        .buttons {
+        margin-top: 3rem;
+        }
+        .main-landing-page-section .main-landing-page-container:hover {
+        transform: scale(1.04) rotate(1deg);
+        }
+
+        .circle {
+        width: 150px;
+        height: 150px;
+        background: var(--primary-gradient);
+        border-radius: 50%;
+        position: absolute;
+        animation: move-up6 2s ease-in infinite alternate-reverse;
+        }
+        .circle:nth-child(1) {
+        top: -55px;
+        left: -55px;
+        }
+        .circle:nth-child(2) {
+        bottom: -60px;
+        right: -100px;
+        animation-name: move-down1;
+        }
+
+        @keyframes move-up6 {
+        to {
+            transform: translateY(-15px);
+        }
+        }
+        @keyframes move-down1 {
+        to {
+            transform: translateY(15px);
+        }
+        }
+        .main-landing-page-btn {
+        background-color: transparent;
+        border: 2px solid var(--primary-200);
+        border-radius: 0.7rem;
+        box-sizing: border-box;
+        color: #fff;
+        cursor: pointer;
+        display: inline-block;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        margin: 0;
+        outline: none;
+        overflow: visible;
+        padding: 0.5rem 1rem;
+        position: relative;
+        text-align: center;
+        text-decoration: none;
+        text-transform: none;
+        transition: all 0.3s ease-in-out;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+        font-size: 13px;
+        }
+        .main-landing-page-btn::before {
+        content: " ";
+        width: 1.3625rem;
+        height: 2px;
+        background: var(--text-100);
+        top: 50%;
+        left: 1.5em;
+        position: absolute;
+        transform: translateY(-50%);
+        transform-origin: center;
+        transition: background 0.3s linear, width 0.3s linear;
+        }
+        .main-landing-page-btn .text {
+        font-size: 1.125em;
+        line-height: 1.33333em;
+        padding-left: 2em;
+        display: block;
+        text-align: left;
+        transition: all 0.3s ease-in-out;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: var(--text-100);
+        }
+        .main-landing-page-btn .top-key {
+        height: 2px;
+        width: 1.5625rem;
+        top: -2px;
+        left: 0.625rem;
+        position: absolute;
+        background: #e8e8e8;
+        transition: width 0.5s ease-out, left 0.3s ease-out;
+        }
+        .main-landing-page-btn .bottom-key-1 {
+        height: 2px;
+        width: 1.5625rem;
+        right: 1.875rem;
+        bottom: -2px;
+        position: absolute;
+        background: #e8e8e8;
+        transition: width 0.5s ease-out, right 0.3s ease-out;
+        }
+        .main-landing-page-btn .bottom-key-2 {
+        height: 2px;
+        width: 0.625rem;
+        right: 0.625rem;
+        bottom: -2px;
+        position: absolute;
+        background: #e8e8e8;
+        transition: width 0.5s ease-out, right 0.3s ease-out;
+        }
+        .main-landing-page-btn:hover {
+        color: white;
+        background: var(--primary-200);
+        }
+        .main-landing-page-btn:hover::before {
+        width: 0.9375rem;
+        background: white;
+        }
+        .main-landing-page-btn:hover .text {
+        color: white;
+        padding-left: 1.5em;
+        }
+        .main-landing-page-btn:hover .top-key {
+        left: -2px;
+        width: 0px;
+        }
+        .main-landing-page-btn:hover .bottom-key-1,
+        .main-landing-page-btn:hover .bottom-key-2 {
+        right: 0;
+        width: 0;
+        }
+        .main-landing-page-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          .main-landing-page-section
+            .main-landing-page-container
+            .card-inner
+            .card-inner-details
+            h1 {
+            font-family: "Kaushan Script", cursive;
+            font-weight: 100;
+            color: var(--primary-200);
+          }
+          .main-landing-page-section
+            .main-landing-page-container
+            .card-inner
+            .card-inner-details
+            h1
+            span {
+            font-family: "Kaushan Script", cursive;
+            font-size: 3.5rem;
+            font-weight: 900 !important;
+            color: #ee1d52;
+          }
+          .main-landing-page-section
+            .main-landing-page-container
+            .card-inner
+            .card-inner-details
+            .login-page-input-container
+            .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+          }
+          .main-landing-page-section
+            .main-landing-page-container
+            .card-inner
+            .card-inner-details
+            .login-page-input-container
+            .login-form
+            .input-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+          .main-landing-page-section
+            .main-landing-page-container
+            .card-inner
+            .card-inner-details
+            .login-page-input-container
+            .login-form
+            .input-container
+            input {
+            width: 20rem;
+            height: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 1.5rem;
+            border: 1px solid var(--bg-300);
+            background-color: transparent;
+          }
+          .main-landing-page-section
+            .main-landing-page-container
+            .card-inner
+            .card-inner-details
+            .login-page-input-container
+            .login-form
+            .input-container
+            input:hover,
+          .main-landing-page-section
+            .main-landing-page-container
+            .card-inner
+            .card-inner-details
+            .login-page-input-container
+            .login-form
+            .input-container
+            input:focus {
+            border: 0.5px solid var(--primary-200);
+          }
+          .main-landing-page-section
+            .main-landing-page-container
+            .card-inner
+            .card-inner-details
+            .login-page-input-container
+            .login-form
+            .buttons {
+            margin-top: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+          }
+          .main-landing-page-section
+            .main-landing-page-container
+            .card-inner
+            .card-inner-details
+            .login-page-input-container
+            .login-form
+            .buttons
+            .main-landing-page-btn {
+            background-color: transparent;
+            border: 2px solid var(--primary-200);
+            border-radius: 0.7rem;
+            cursor: pointer;
+            display: inline-block;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            overflow: visible;
+            padding: 0.2rem 1.5rem;
+            position: relative;
+            text-align: center;
+            text-decoration: none;
+            text-transform: none;
+            transition: all 0.3s ease-in-out;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+            font-size: 12px;
+          }
+          .main-landing-page-section
+            .main-landing-page-container
+            .card-inner
+            .card-inner-details
+            .login-page-input-container
+            .login-form
+            .buttons
+            .main-landing-page-btn::before {
+            content: " ";
+            width: 1.3625rem;
+            height: 2px;
+            background: var(--text-100);
+            top: 50%;
+            left: 1.5em;
+            position: absolute;
+            transform: translateY(-50%);
+            transform-origin: center;
+            transition: background 0.3s linear, width 0.3s linear;
+          }
+          .main-landing-page-section
+            .main-landing-page-container
+            .card-inner
+            .card-inner-details
+            .login-page-input-container
+            .login-form
+            .buttons
+            .main-landing-page-btn
+            .text {
+            font-size: 1.125em;
+            line-height: 1.33333em;
+            padding-left: 1.5em;
+            display: block;
+            text-align: left;
+            transition: all 0.3s ease-in-out;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--text-100);
+          }
+          .main-landing-page-section
+            .main-landing-page-container
+            .card-inner
+            .card-inner-details
+            .login-page-input-container
+            .login-form
+            .buttons
+            .main-landing-page-btn
+            .top-key {
+            height: 2px;
+            width: 1.5625rem;
+            top: -2px;
+            left: 0.625rem;
+            position: absolute;
+            background: #e8e8e8;
+            transition: width 0.5s ease-out, left 0.3s ease-out;
+          }
+          .main-landing-page-section
+            .main-landing-page-container
+            .card-inner
+            .card-inner-details
+            .login-page-input-container
+            .login-form
+            .buttons
+            .main-landing-page-btn
+            .bottom-key-1 {
+            height: 2px;
+            width: 1.5625rem;
+            right: 1.875rem;
+            bottom: -2px;
+            position: absolute;
+            background: #e8e8e8;
+            transition: width 0.5s ease-out, right 0.3s ease-out;
+          }
+          .main-landing-page-section
+            .main-landing-page-container
+            .card-inner
+            .card-inner-details
+            .login-page-input-container
+            .login-form
+            .buttons
+            .main-landing-page-btn
+            .bottom-key-2 {
+            height: 2px;
+            width: 0.625rem;
+            right: 0.625rem;
+            bottom: -2px;
+            position: absolute;
+            background: #e8e8e8;
+            transition: width 0.5s ease-out, right 0.3s ease-out;
+          }
+          .main-landing-page-section
+            .main-landing-page-container
+            .card-inner
+            .card-inner-details
+            .login-page-input-container
+            .login-form
+            .buttons
+            .main-landing-page-btn:hover {
+            color: white;
+            background: var(--primary-200);
+          }
+          .main-landing-page-section
+            .main-landing-page-container
+            .card-inner
+            .card-inner-details
+            .login-page-input-container
+            .login-form
+            .buttons
+            .main-landing-page-btn:hover::before {
+            width: 0.9375rem;
+            background: white;
+          }
+          .main-landing-page-section
+            .main-landing-page-container
+            .card-inner
+            .card-inner-details
+            .login-page-input-container
+            .login-form
+            .buttons
+            .main-landing-page-btn:hover
+            .text {
+            color: white;
+            padding-left: 1.5em;
+          }
+          .main-landing-page-section
+            .main-landing-page-container
+            .card-inner
+            .card-inner-details
+            .login-page-input-container
+            .login-form
+            .buttons
+            .main-landing-page-btn:hover
+            .top-key {
+            left: -2px;
+            width: 0px;
+          }
+          .main-landing-page-section
+            .main-landing-page-container
+            .card-inner
+            .card-inner-details
+            .login-page-input-container
+            .login-form
+            .buttons
+            .main-landing-page-btn:hover
+            .bottom-key-1,
+          .main-landing-page-section
+            .main-landing-page-container
+            .card-inner
+            .card-inner-details
+            .login-page-input-container
+            .login-form
+            .buttons
+            .main-landing-page-btn:hover
+            .bottom-key-2 {
+            right: 0;
+            width: 0;
+          }
+          .main-landing-page-section
+            .main-landing-page-container
+            .card-inner
+            .card-inner-details
+            .login-page-input-container
+            .login-form
+            .buttons
+            .r-div
+            p
+            a {
+            color: var(--primary-200);
+            transition: 300ms all;
+          }
+          .main-landing-page-section
+            .main-landing-page-container
+            .card-inner
+            .card-inner-details
+            .login-page-input-container
+            .login-form
+            .buttons
+            .r-div
+            p
+            a:hover {
+            letter-spacing: 0.1rem;
+            color: var(--primary-100);
+          }
+          .main-landing-page-section
+            .main-landing-page-container
+            .card-inner
+            .card-inner-details
+            .login-page-btn {
+            align-items: center;
+            display: flex;
+            margin-top: 1rem;
+          }
+          .main-landing-page-section .main-landing-page-container:hover {
+            transform: scale(1.04) rotate(1deg);
+          }
+    </style>
+  </head>
+  <body>
+    <section class="login-section main-landing-page-section">
+      <div class="card main-landing-page-container">
+        <div class="circle"></div>
+        <div class="circle"></div>
+
+        <div class="card-inner">
+          <div class="card-inner-details">
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            <h1>Welcome back to Docu Assist</h1>
+
+            <div class="login-page-input-container">
+              <h2 class="kaushan-font">Login now</h2>
+              <form method="POST" class="login-form">
+                {% csrf_token %}
+                <div class="input-container">
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter your email address"
+                    required
+                  />
+                </div>
+
+                <div class="input-container">
+                  <input
+                    type="password"
+                    name="password"
+                    placeholder="Enter your password"
+                    required
+                  />
+                </div>
+
+                <div class="buttons">
+                  <button type="submit" class="main-landing-page-btn"">
+                    <span class="top-key"></span>
+                    <span class="text">login</span>
+                    <span class="bottom-key-1"></span>
+                    <span class="bottom-key-2"></span>
+                  </button>
+
+
+                  <div class="r-div">
+                    <p>Don't have an account?
+                        <a href="{% url "register" %}" class="kaushan-font">Register now</a>
+                    </p>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
+
+
+{% comment %} <!DOCTYPE html>
  {% load static %}
 <html lang="en">
 <head>
@@ -35,4 +683,4 @@
         </div>
     </div>
 </body>
-</html>
+</html> {% endcomment %}

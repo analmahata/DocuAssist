@@ -38,9 +38,12 @@ def regcomplete(request):
         emergency_contact_name = request.POST['emergency_contact_name']
         emergency_contact_number = request.POST['emergency_contact_number']
         password = request.POST['password']
-
+        cpassword = request.POST['cpassword']
         my_user = CustomUser.objects.create_user(email=email, password=password)
         request.session['registration_email'] = email
+        if password != cpassword:
+                messages.error(request, 'Error Password Confirm Password mismatch')
+                return redirect('register')
 
         my_user.name = name
         my_user.gender = gender
@@ -158,7 +161,7 @@ def user_login(request):
 
 def user_logout(request):
     logout(request)
-    return redirect('login')
+    return redirect('index')
 
 
 @login_required(login_url='login')

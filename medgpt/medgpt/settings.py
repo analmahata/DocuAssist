@@ -126,7 +126,7 @@ STATIC_URL = "/static/"
 STATIC_ROOT = "staticfiles"
 STATICFILES_DIRS = ["static"]
 
-LOGIN_URL = '/users/login/'
+LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = 'success'
 
 MEDIA_URL = "/media/"

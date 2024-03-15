@@ -23,7 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('users.urls')),
     path('chat/', include('chat.urls')),
-    path('users/login/', LoginView.as_view(), name='login'),
+    #path('users/login/', LoginView.as_view(), name='login'),
     path('profiles/', include('profiles.urls')),
     #path('', include('users.urls')),
 ]
